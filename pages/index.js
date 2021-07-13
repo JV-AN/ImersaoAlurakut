@@ -92,8 +92,8 @@ export default function Home() {
               </div>
               <div>
                 <input
-                  placeholder="Digite o URL da imagem de capa"
-                  aria-label="Digite o URL da imagem de capa"
+                  placeholder="Insira o URL da imagem de capa (Deixar em branco resultára em um imagema aleatória)"
+                  aria-label="Insira o URL da imagem de capa (Deixar em branco resultára em um imagema aleatória)"
                   name="image"
                 />
               </div>
@@ -128,10 +128,11 @@ export default function Home() {
             <ul>
               {comunidades.map((itemAtual) => {
               const cmpLinkVazio = itemAtual.link === '' ? itemAtual.title : itemAtual.link;
+              const cmpImageVazio = itemAtual.image === '' ? 'https://picsum.photos/200/300' : itemAtual.image;
                 return (
                   <li key={itemAtual.id}>
                     <a href={cmpLinkVazio} >
-                    <img src={itemAtual.image} />
+                    <img src={cmpImageVazio} />
                       <span>{itemAtual.title}</span>
                     </a>
                   </li>
