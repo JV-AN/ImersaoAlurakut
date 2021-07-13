@@ -40,6 +40,7 @@ export default function Home() {
     'steppat'
   ]
 
+
   return (
     <>
       <AlurakutMenu />
@@ -126,10 +127,11 @@ export default function Home() {
 
             <ul>
               {comunidades.map((itemAtual) => {
+              const cmpLinkVazio = itemAtual.link === '' ? itemAtual.title : itemAtual.link;
                 return (
                   <li key={itemAtual.id}>
-                    <a href={`${itemAtual.link}`} >
-                    <img src={`${itemAtual.image}`} />
+                    <a href={cmpLinkVazio} >
+                    <img src={itemAtual.image} />
                       <span>{itemAtual.title}</span>
                     </a>
                   </li>
