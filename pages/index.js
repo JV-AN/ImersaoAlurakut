@@ -42,7 +42,8 @@ export default function Home() {
     'peas',
     'rafaballerini',
     'marcobrunodev',
-    'steppat'
+    'steppat',
+    'humberto001'
   ]
 
 
@@ -113,10 +114,10 @@ export default function Home() {
             </h2>
 
             <ul>
-              {pessoasFavoritas.map((itemAtual) => {
+            {pessoasFavoritas.slice(0, 6).map((itemAtual) => {
                 return (
-                  <li key={itemAtual}>
-                    <a href={`/users/${itemAtual}`}>
+                  <li key ={itemAtual}>
+                    <a href={`/users/${itemAtual}`} key={itemAtual}>
                       <img src={`https://github.com/${itemAtual}.png`} />
                       <span>{itemAtual}</span>
                     </a>
@@ -131,12 +132,11 @@ export default function Home() {
             </h2>
 
             <ul>
-              {comunidades.map((itemAtual) => {
+              {comunidades.slice(0,6).map((itemAtual) => {
               const cmpLinkVazio = itemAtual.link === '' ? itemAtual.title : itemAtual.link;
               const cmpImageVazio = itemAtual.image === '' ? 'https://picsum.photos/200/300' : itemAtual.image;
-                return (comunidades.length > 6 ? (
-                 false
-                ):  <li key={itemAtual.id}>
+                return (
+              <li key={itemAtual.id}>
                 <a href={cmpLinkVazio} >
                 <img src={cmpImageVazio} />
                   <span>{itemAtual.title}</span>
