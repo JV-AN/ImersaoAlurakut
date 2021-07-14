@@ -30,6 +30,11 @@ export default function Home() {
     title: 'Alurabook',
     link: 'https://www.facebook.com/',
     image: 'https://scontent.fcgh10-1.fna.fbcdn.net/v/t1.6435-9/58978307_2720391837988563_2362113514652303360_n.png?_nc_cat=1&ccb=1-3&_nc_sid=973b4a&_nc_ohc=hrQu1d5oMykAX84NURa&_nc_ht=scontent.fcgh10-1.fna&oh=d4384165d131ec8cf47b2473ff662f55&oe=60F3B65C'
+  },{
+    id: '123145',
+    title: 'Amamos o sotaque do Nico',
+    link: 'https://github.com/steppat',
+    image: 'https://github.com/steppat.png'
   }]);
   const pessoasFavoritas = [
     'juunegreiros',
@@ -43,7 +48,7 @@ export default function Home() {
 
   return (
     <>
-      <AlurakutMenu />
+      <AlurakutMenu githubUser={usuarioAleatorio}/>
       <MainGrid>
         {/* <Box style="grid-area: profileArea;"> */}
         <div className="profileArea" style={{ gridArea: 'profileArea' }}>
@@ -92,8 +97,8 @@ export default function Home() {
               </div>
               <div>
                 <input
-                  placeholder="Insira o URL da imagem de capa (Deixar em branco resultára em um imagema aleatória)"
-                  aria-label="Insira o URL da imagem de capa (Deixar em branco resultára em um imagema aleatória)"
+                  placeholder="Insira o URL da imagem de capa ( ou deixe em branco p/ uma imagem aleatória)"
+                  aria-label="Insira o URL da imagem de capa ( ou deixe em branco p/ uma imagem aleatória)"
                   name="image"
                 />
               </div>
@@ -129,14 +134,14 @@ export default function Home() {
               {comunidades.map((itemAtual) => {
               const cmpLinkVazio = itemAtual.link === '' ? itemAtual.title : itemAtual.link;
               const cmpImageVazio = itemAtual.image === '' ? 'https://picsum.photos/200/300' : itemAtual.image;
-                return (
-                  <li key={itemAtual.id}>
-                    <a href={cmpLinkVazio} >
-                    <img src={cmpImageVazio} />
-                      <span>{itemAtual.title}</span>
-                    </a>
-                  </li>
-                )
+                return (comunidades.length > 6 ? (
+                 false
+                ):  <li key={itemAtual.id}>
+                <a href={cmpLinkVazio} >
+                <img src={cmpImageVazio} />
+                  <span>{itemAtual.title}</span>
+                </a>
+              </li>)
               })}
             </ul>
           </ProfileRelationsBoxWrapper>

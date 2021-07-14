@@ -11,7 +11,8 @@ const GlobalStyle = createGlobalStyle`
   }
   body {
     font-family: sans-serif;
-    background-color: #D9E6F6;
+    background-image: url(https://acegif.com/wp-content/gif/outerspace-70.gif);
+    background-size: 100vw;
   }
   #__next {
     display: flex;
